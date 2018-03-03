@@ -5,7 +5,7 @@ export default function() {
       author: "Pavel Keyzik",
       title: "Test",
       text: "My first post",
-      image: "road.jpeg",
+      image: "/assets/images/road.jpeg",
       likes: 15
     },
     {
@@ -13,7 +13,7 @@ export default function() {
       author: "Pavel Keyzik",
       title: "Lol",
       text: "How are you doing today?",
-      image: "american-flag.jpeg",
+      image: "/assets/images/american-flag.jpeg",
       likes: 2
     }
   ];
