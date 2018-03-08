@@ -1,12 +1,18 @@
 import React, { Component } from "react";
+import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import { Card, Image, Icon } from "semantic-ui-react";
+import * as actions from "../actions/posts";
 
 class Posts extends Component {
   showPosts() {
     return this.props.posts.map(post => (
-      <Card fluid>
-        <Image src={post.image} fluid />
+      <Card key={post.id} fluid>
+        <Image
+          onDoubleClick={this.addLike.bind(null, post.id)}
+          src={post.image}
+          fluid
+        />
         <Card.Content>
           <Card.Header>{post.author}</Card.Header>
           <Card.Meta>{post.title}</Card.Meta>
@@ -21,6 +27,10 @@ class Posts extends Component {
     ));
   }
 
+  addLike = id => {
+    this.props.actions.addLike(id);
+  };
+
   render() {
     return <div>{this.showPosts()}</div>;
   }
@@ -32,4 +42,10 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Posts);
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(actions, dispatch)
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Posts);

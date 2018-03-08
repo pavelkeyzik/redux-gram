@@ -1,20 +1,11 @@
-export default function() {
-  return [
-    {
-      id: 1,
-      author: "Pavel Keyzik",
-      title: "Test",
-      text: "My first post",
-      image: "/assets/images/road.jpeg",
-      likes: 15
-    },
-    {
-      id: 2,
-      author: "Pavel Keyzik",
-      title: "Lol",
-      text: "How are you doing today?",
-      image: "/assets/images/american-flag.jpeg",
-      likes: 2
-    }
-  ];
+import { ADD_LIKE } from "../actions/posts";
+import { api } from "../utils/api";
+
+export default function(state = api.getPosts(), action) {
+  switch (action.type) {
+    case ADD_LIKE:
+      return api.addLike(action.payload);
+    default:
+      return state;
+  }
 }
