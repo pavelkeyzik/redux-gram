@@ -19,7 +19,7 @@ class Posts extends Component {
           <Card.Description>{post.text}</Card.Description>
         </Card.Content>
         <Card.Content extra>
-          <a>
+          <a onClick={this.addLike.bind(null, post.id)}>
             <Icon name="heart" /> {post.likes} Likes
           </a>
         </Card.Content>
