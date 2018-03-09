@@ -27,7 +27,10 @@ class Posts extends Component {
     ));
   }
 
-  addLike = id => {
+  /**
+   * @param {number} id Post id
+   */
+  addLike = (id) => {
     this.props.actions.addLike(id);
   };
 
