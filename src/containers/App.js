@@ -5,7 +5,7 @@ import { Container, Grid } from "semantic-ui-react";
 class App extends Component {
   render() {
     return (
-      <Container>
+      <Container key="container">
         <Grid columns="equal">
           <Grid.Column>
             <Posts />
