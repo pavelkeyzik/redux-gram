@@ -30,7 +30,7 @@ class Posts extends Component {
   /**
    * @param {number} id Post id
    */
-  addLike = (id) => {
+  addLike = id => {
     this.props.actions.addLike(id);
   };
 
